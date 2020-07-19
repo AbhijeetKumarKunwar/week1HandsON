@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        
+<!-- when scope prototype is mentioned then constructor will call twice when we call get
+baeans two time,tat means we can create multiple new country new object -->
+
+
+    <bean id="country" class="com.cognizant.springlearn.bean.Country" scope="prototype">  
+        <!-- collaborators and configuration for this bean go here -->
+        <property name="name" value="INDIA"></property>
+        <property name="code" value="IN"></property>
+    </bean>
+    
+    
+    <!-- This will genrate the list of county bean 
+    inside the countryList bean we will declear the list and with constructor 
+    injection we will inject the value and one extra bean tag wll refer the county 
+     object .
+     -->
+    <bean id="countrylist" class="com.cognizant.springlearn.bean.CountryList">
+    
+    <property name="countryList">
+  <list>
+    <bean class="com.cognizant.springlearn.bean.Country">
+        <constructor-arg name="name" value = "INDIA"/>
+        <constructor-arg name="code" value = "IN"/>
+    </bean>
+    <bean class="com.cognizant.springlearn.bean.Country">
+        <constructor-arg name="name" value = "America"/>
+        <constructor-arg name="code" value = "US"/>
+    </bean>
+    <bean class="com.cognizant.springlearn.bean.Country">
+        <constructor-arg name="name" value = "Japan"/>
+        <constructor-arg name="code" value = "jp"/>
+    </bean>
+    <bean class="com.cognizant.springlearn.bean.Country">
+        <constructor-arg name="name" value = "Germany"/>
+        <constructor-arg name="code" value = "DE"/>
+    </bean>
+  </list>
+</property>
+    </bean>
+
+    
+</beans>

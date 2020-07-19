@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+    <!-- This will genrate the list of county bean 
+    inside the countryList bean we will declear the list and with constructor 
+    injection we will inject the value and one extra bean tag wll refer the county 
+     object .
+     -->
+    <bean id="employlist" class="com.cognizant.springlearn.dao.EmployeeDao">
+    
+    <property name="emp">
+  <list>
+    <bean class="com.cognizant.springlearn.bean.Employee">
+        <constructor-arg name="name" value = "david"/>
+        <constructor-arg name="id" value = "1" type="int"/>
+        <constructor-arg name="salary" value = "1000" type="int"/>
+        <constructor-arg name="permanent" value = "yes" />
+        <constructor-arg name="dateofbirth" value = "21/02/2020" type="String"/>
+    </bean>
+   <bean class="com.cognizant.springlearn.bean.Employee">
+        <constructor-arg name="name" value = "Devendra"/>
+       <constructor-arg name="id" value = "2" type="int"/>
+        <constructor-arg name="salary" value = "1000" type="int"/>
+        <constructor-arg name="permanent" value = "yes" />
+        <constructor-arg name="dateofbirth" value = "21/02/2020" type="String"/>
+        <constructor-arg name="dateofbirth" value = "21/2/2020"/>
+    </bean>
+    <bean class="com.cognizant.springlearn.bean.Employee">
+        <constructor-arg name="name" value = "ramu"/>
+        <constructor-arg name="id" value = "3" type="int"/>
+        <constructor-arg name="salary" value = "1000" type="int"/>
+        <constructor-arg name="permanent" value = "yes" />
+        <constructor-arg name="dateofbirth" value = "21/02/2020" type="String"/>
+    </bean>
+    
+  </list>
+</property>
+    </bean>
+    
+    
+    
+    <bean id="depart" class="com.cognizant.springlearn.dao.DepartmentDao">
+    
+    <property name="dept">
+  <list>
+    <bean class="com.cognizant.springlearn.bean.Department">
+        <constructor-arg name="name" value = "Banking"/>
+        <constructor-arg name="code" value = "BNK"/>
+    </bean>
+   <bean class="com.cognizant.springlearn.bean.Department">
+        <constructor-arg name="name" value = "Finance"/>
+        <constructor-arg name="code" value = "Fin"/>
+    </bean>
+    <bean class="com.cognizant.springlearn.bean.Department">
+        <constructor-arg name="name" value = "Helth"/>
+        <constructor-arg name="code" value = "HEL"/>
+    </bean>
+    
+  </list>
+</property>
+    </bean>
+
+    
+</beans>
